@@ -1,5 +1,5 @@
-import MoneyCount from "../../MoneyCount";
-import Transaction from "../../Transaction";
+import MoneyCount from "../MoneyCount";
+import Transaction from "../Transaction";
 
 function TrumpCard({trumpName}) {
     return (<div style={{border: "1px solid green"}}>

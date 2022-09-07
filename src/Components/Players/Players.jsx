@@ -1,21 +1,18 @@
-import PlayerCard from "./Players/PlayerCard";
-import Start from "./Board/Start"
+import PlayerCard from "./PlayerCard";
 
 function Players({players, setPlayers}) {
 
     const lastPlayerAdded = players[players.length-1]
 
     function AddPlayer() {
-        setPlayers([...players, {playerName: undefined, money:0, key: lastPlayerAdded.key+1}])
+        setPlayers([...players, {playerName: undefined, money:0, id: lastPlayerAdded.id+1}])
     }
 
     return (<div style={{border: "2px cyan solid", alignSelf: "flex-start", marginLeft: "15%", marginRight: "15%", display: "flex", flexDirection: "column", flexWrap: "wrap"}}>
         <button onClick={() => AddPlayer()}>New Player</button>
         <h1>These are the players</h1>
-        <button onClick={() => console.log(players)}>200</button>
-        <Start />
         <div style={{display: "flex", flexWrap: "wrap"}}>
-            {players.map(item => <PlayerCard number={item.key+1} key={item.key} players={players} setPlayers={setPlayers} money={item.money} />)}
+            {players.map(item => <PlayerCard number={item.id+1} key={item.id} players={players} setPlayers={setPlayers} money={item.money} id={item.id} />)}
         </div>
     </div>)
   } 

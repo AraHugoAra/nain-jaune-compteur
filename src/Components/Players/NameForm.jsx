@@ -1,15 +1,19 @@
 import { useState } from "react";
 
-function NameForm() {
+function NameForm({players, setPlayers, id}) {
 
-    const [state, setState] = useState({playerName: "", isValid: false})
+    const filteredCurrentPlayer = players.filter(item => item.id !== id)
+    const currentPlayer = players.find(item => item.id === id)
+
+    const [state, setState] = useState({formName: "", isValid: false})
 
     function HandleChange(e) {
-        setState({playerName: e.target.value, isValid: state.isValid})
+        setState({formName: e.target.value, isValid: state.isValid})
     }
     function HandleSubmit(e) {
         e.preventDefault()
-        setState({playerName: state.playerName, isValid: true})
+        setPlayers([...filteredCurrentPlayer, {playerName: state.formName, money: currentPlayer.money, id: currentPlayer.id}])
+        setState({isValid: true})
 
     }
     
@@ -24,7 +28,7 @@ function NameForm() {
                 <button onClick={(e) => HandleSubmit(e)}>OK</button>
             </form>
         ) : (
-            <h2>{state.playerName}</h2>
+            <h2>{currentPlayer.playerName}</h2>
         )
         }
     </>)

@@ -1,6 +1,6 @@
 function Bets() {
     return (<>
-        <button>Bets</button>
+        <button>Les joueurs misent</button>
     </>)
   }
   
