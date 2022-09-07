@@ -6,12 +6,17 @@ import Start from "./Start";
 
 function Board() {
 
-  const [players, setPlayers] = useState([{playerName: undefined, money: 0, id: 0}])
+  const [players, setPlayers] = useState([{playerName: undefined, money: 0, id: 0}])    
+  const [trumps, setTrumps] = useState([  {trumpName: "10", money: 0}, 
+                                          {trumpName: "J", money: 0}, 
+                                          {trumpName: "D", money: 0},
+                                          {trumpName: "K", money: 0},
+                                          {trumpName: "7", money: 0}])
 
     return (<div style={{display: "flex", flexDirection: "column", justifyContent: "space-evenly", alignItems: "center", border: "1px solid red"}}>
         <h1>This is the board</h1>
-        <Trumps players={players} setPlayers={setPlayers} />
-        <Bets />
+        <Trumps trumps={trumps} />
+        <Bets trumps={trumps} setTrumps={setTrumps} players={players} setPlayers={setPlayers} />
         <Start players={players} setPlayers={setPlayers} />
         <Players players={players} setPlayers={setPlayers} />
     </div>)

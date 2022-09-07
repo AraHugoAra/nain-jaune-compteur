@@ -1,24 +1,30 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
-function NameForm({players, setPlayers, id}) {
+function NameForm({players, setPlayers, id, money}) {
 
     const filteredCurrentPlayer = players.filter(item => item.id !== id)
     const currentPlayer = players.find(item => item.id === id)
 
-    const [state, setState] = useState({formName: "", isValid: false})
+    const [state, setState] = useState({formName: "", isValidated: false})
+
+    const [loser, setLoss] = useState(false)
+
+    useEffect(() => {
+        money < 0 ? setLoss(true) : setLoss(false)
+    }, [money])
 
     function HandleChange(e) {
-        setState({formName: e.target.value, isValid: state.isValid})
+        setState({formName: e.target.value, isValidated: state.isValidated})
     }
     function HandleSubmit(e) {
         e.preventDefault()
         setPlayers([...filteredCurrentPlayer, {playerName: state.formName, money: currentPlayer.money, id: currentPlayer.id}])
-        setState({isValid: true})
+        setState({isValidated: true})
 
     }
     
     return (<>
-        {!state.isValid ? (
+        {!state.isValidated ? (
             <form>
                 <input  name="form-name" 
                         type="text" 
@@ -28,7 +34,7 @@ function NameForm({players, setPlayers, id}) {
                 <button onClick={(e) => HandleSubmit(e)}>OK</button>
             </form>
         ) : (
-            <h2>{currentPlayer.playerName}</h2>
+            <h2>{currentPlayer.playerName} {loser && <span>Loser</span>}</h2>
         )
         }
     </>)
