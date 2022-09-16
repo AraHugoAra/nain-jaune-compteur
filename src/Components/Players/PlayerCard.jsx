@@ -15,7 +15,7 @@ function PlayerCard({players, setPlayers, number, money, id}) {
         <p>Player #{number}</p>
         <NameForm players={players} setPlayers={setPlayers} id={id} money={money} />
         <MoneyCount money={money} />
-        <Transaction />
+        <Transaction players={players} setPlayers={setPlayers} playerId={id} />
     </div>)
   }
   

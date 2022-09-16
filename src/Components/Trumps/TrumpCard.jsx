@@ -6,7 +6,7 @@ function TrumpCard({trumpName, money}) {
     return (<div style={{border: "1px solid lightgreen"}}>
         <h3>{trumpName}</h3>
         <MoneyCount money={money} />
-        <Transaction />
+        {/* <Transaction /> */}
     </div>)
   }
   

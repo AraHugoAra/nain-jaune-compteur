@@ -2,7 +2,7 @@ function Bets({trumps, setTrumps, players, setPlayers}) {
 
     function trumpsBets() {
         let trumpsPlusBets = []
-        trumps.map(trump => trumpsPlusBets.push({trumpName: trump.trumpName, money: trump.money += 15}))
+        trumps.map(trump => trumpsPlusBets.push({trumpName: trump.trumpName, money: trump.money += trump.bet*players.length, bet: trump.bet}))
         setTrumps(trumpsPlusBets)
     }
 
