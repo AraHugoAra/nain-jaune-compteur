@@ -15,10 +15,10 @@ function Board() {
 
     return (<div style={{display: "flex", flexDirection: "column", justifyContent: "space-evenly", alignItems: "center", border: "1px solid red"}}>
         <h1>This is the board</h1>
-        <Trumps trumps={trumps} />
+        <Trumps trumps={trumps} setTrumps={setTrumps} players={players} setPlayers={setPlayers} />
         <Bets trumps={trumps} setTrumps={setTrumps} players={players} setPlayers={setPlayers} />
         <Start players={players} setPlayers={setPlayers} />
-        <Players players={players} setPlayers={setPlayers} />
+        <Players players={players} setPlayers={setPlayers} trumps={trumps} setTrumps={setTrumps}/>
     </div>)
   }
   

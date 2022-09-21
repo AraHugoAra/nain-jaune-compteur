@@ -1,6 +1,6 @@
 import PlayerCard from "./PlayerCard";
 
-function Players({players, setPlayers}) {
+function Players({players, setPlayers, trumps, setTrumps}) {
 
     const lastPlayerAdded = players[players.length-1]
 
@@ -12,7 +12,7 @@ function Players({players, setPlayers}) {
         <button onClick={() => AddPlayer()}>New Player</button>
         <h1>These are the players</h1>
         <div style={{display: "flex", flexWrap: "wrap"}}>
-            {players.map(item => <PlayerCard number={item.id+1} key={item.id} players={players} setPlayers={setPlayers} money={item.money} id={item.id} />)}
+            {players.map(item => <PlayerCard number={item.id+1} key={item.id} players={players} setPlayers={setPlayers} money={item.money} id={item.id} trumps={trumps} setTrumps={setTrumps} />)}
         </div>
     </div>)
   } 

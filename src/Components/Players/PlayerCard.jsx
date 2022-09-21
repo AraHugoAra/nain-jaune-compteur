@@ -2,7 +2,7 @@ import MoneyCount from "../MoneyCount";
 import Transaction from "../Transaction";
 import NameForm from "./NameForm";
 
-function PlayerCard({players, setPlayers, number, money, id}) {
+function PlayerCard({players, setPlayers, number, money, id, trumps, setTrumps}) {
 
     const filteredCurrentPlayer = players.filter(item => item.id !== id)
 
@@ -15,7 +15,7 @@ function PlayerCard({players, setPlayers, number, money, id}) {
         <p>Player #{number}</p>
         <NameForm players={players} setPlayers={setPlayers} id={id} money={money} />
         <MoneyCount money={money} />
-        <Transaction players={players} setPlayers={setPlayers} playerId={id} />
+        <Transaction players={players} setPlayers={setPlayers} itemId={id} trumps={trumps} setTrumps={setTrumps} />
     </div>)
   }
   
