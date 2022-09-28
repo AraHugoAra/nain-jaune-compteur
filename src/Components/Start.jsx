@@ -1,3 +1,6 @@
+import { Button } from "@mui/material";
+import AttachMoneyIcon from '@mui/icons-material/AttachMoney';
+
 function Start({players, setPlayers}) {
 
     function giveTokens() {
@@ -7,7 +10,7 @@ function Start({players, setPlayers}) {
     }
 
     return (<>
-        <button onClick={() => giveTokens()} >Les joueurs reçoivent 200 jetons</button>
+        <Button variant="outlined" size="small" onClick={() => giveTokens()} ><AttachMoneyIcon />+200</Button>
     </>)
   }
   

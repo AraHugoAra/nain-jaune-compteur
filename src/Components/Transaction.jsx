@@ -5,7 +5,7 @@ import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import TextField from "@mui/material/TextField";
-import PaymentsOutlinedIcon from '@mui/icons-material/PaymentsOutlined';
+import AttachMoneyIcon from '@mui/icons-material/AttachMoney';
 
 function Transaction({players, setPlayers, itemId, trumps, setTrumps, trumpTransaction, trumpName}) {
 
@@ -86,13 +86,13 @@ function Transaction({players, setPlayers, itemId, trumps, setTrumps, trumpTrans
                 size="small"
                 type="text"
                 id="quantity" 
-                label="This Much" 
+                label="Montant" 
                 variant="outlined"
                 inputProps={{ inputMode: 'numeric', pattern: '[0-9]*' }}
                 onChange={(e) => handleInput(e)}
             />
             <FormControl fullWidth size="small">
-                <InputLabel id="creditors">To: </InputLabel>
+                <InputLabel id="creditors">Pour: </InputLabel>
                 <Select
                     labelId="creditors" 
                     id="creditors-select" 
@@ -110,7 +110,7 @@ function Transaction({players, setPlayers, itemId, trumps, setTrumps, trumpTrans
                         )}
                 </Select>
             </FormControl>
-            <Button variant="outlined" size="small" onClick={() => handleTransaction()}><PaymentsOutlinedIcon /></Button>
+            <Button variant="outlined" size="small" onClick={() => handleTransaction()}><AttachMoneyIcon />Payer</Button>
         </div>)
   }
   

@@ -1,3 +1,6 @@
+import { Button } from "@mui/material";
+import AttachMoneyIcon from '@mui/icons-material/AttachMoney';
+
 function Bets({trumps, setTrumps, players, setPlayers}) {
 
     function trumpsBets() {
@@ -18,7 +21,7 @@ function Bets({trumps, setTrumps, players, setPlayers}) {
     }
 
     return (<>
-        <button onClick={() => handleClick()}>Les joueurs misent</button>
+        <Button variant="outlined" size="small" onClick={() => handleClick()}><AttachMoneyIcon />Miser</Button>
     </>)
   }
   

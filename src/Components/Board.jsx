@@ -3,6 +3,8 @@ import Bets from "./Bets";
 import Trumps from "./Trumps/Trumps.jsx";
 import Players from "./Players/Players.jsx";
 import Start from "./Start";
+import { Button } from "@mui/material";
+import PersonAddAlt1Icon from '@mui/icons-material/PersonAddAlt1';
 
 function Board() {
 
@@ -21,7 +23,7 @@ function Board() {
 
     return (<div>
         <Trumps trumps={trumps} setTrumps={setTrumps} players={players} setPlayers={setPlayers} />
-        <button onClick={() => AddPlayer()}>New Player</button>
+        <Button variant="outlined" size="small" onClick={() => AddPlayer()}><PersonAddAlt1Icon /></Button>
         <Bets trumps={trumps} setTrumps={setTrumps} players={players} setPlayers={setPlayers} />
         <Start players={players} setPlayers={setPlayers} />
         <Players players={players} setPlayers={setPlayers} trumps={trumps} setTrumps={setTrumps}/>
