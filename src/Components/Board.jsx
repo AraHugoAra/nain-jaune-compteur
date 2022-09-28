@@ -13,9 +13,15 @@ function Board() {
                                           {trumpName: "K", money: 0, bet: 4},
                                           {trumpName: "7", money: 0, bet: 5}])
 
-    return (<div style={{display: "flex", flexDirection: "column", justifyContent: "space-evenly", alignItems: "center", border: "1px solid red"}}>
-        <h1>This is the board</h1>
+  const lastPlayerAdded = players[players.length-1]
+
+  function AddPlayer() {
+    setPlayers([...players, {playerName: undefined, money:0, id: lastPlayerAdded.id+1}])
+  }
+
+    return (<div>
         <Trumps trumps={trumps} setTrumps={setTrumps} players={players} setPlayers={setPlayers} />
+        <button onClick={() => AddPlayer()}>New Player</button>
         <Bets trumps={trumps} setTrumps={setTrumps} players={players} setPlayers={setPlayers} />
         <Start players={players} setPlayers={setPlayers} />
         <Players players={players} setPlayers={setPlayers} trumps={trumps} setTrumps={setTrumps}/>

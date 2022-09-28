@@ -1,8 +1,10 @@
 import MoneyCount from "../MoneyCount";
 import Transaction from "../Transaction";
 import NameForm from "./NameForm";
+import { Card, Button } from "@mui/material";
+import DeleteForeverOutlinedIcon from '@mui/icons-material/DeleteForeverOutlined';
 
-function PlayerCard({players, setPlayers, number, money, id, trumps, setTrumps}) {
+function PlayerCard({players, setPlayers, money, id, trumps, setTrumps}) {
 
     const filteredCurrentPlayer = players.filter(item => item.id !== id)
 
@@ -10,12 +12,13 @@ function PlayerCard({players, setPlayers, number, money, id, trumps, setTrumps})
         setPlayers(filteredCurrentPlayer)
     }
 
-    return (<div style={{diplay: "flex", flexDirection: "column", margin:"10px", border: "1px solid red"}}>
-        {players.length > 1 && <button onClick={() => DeletePlayer()}>Delete</button>}
-        <p>Player #{number}</p>
-        <NameForm players={players} setPlayers={setPlayers} id={id} money={money} />
-        <MoneyCount money={money} />
-        <Transaction players={players} setPlayers={setPlayers} itemId={id} trumps={trumps} setTrumps={setTrumps} />
+    return (<div>
+        <Card variant="outlined">
+            {players.length > 1 && <Button variant="outlined" size="small" onClick={() => DeletePlayer()}><DeleteForeverOutlinedIcon /></Button>}
+            <NameForm players={players} setPlayers={setPlayers} id={id} money={money} />
+            <MoneyCount money={money} />
+            <Transaction players={players} setPlayers={setPlayers} itemId={id} trumps={trumps} setTrumps={setTrumps} />
+        </Card>
     </div>)
   }
   

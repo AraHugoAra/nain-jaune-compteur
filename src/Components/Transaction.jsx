@@ -1,15 +1,24 @@
 import { useState } from "react";
+import { Button } from "@mui/material";
+import Select from '@mui/material/Select';
+import InputLabel from '@mui/material/InputLabel';
+import MenuItem from '@mui/material/MenuItem';
+import FormControl from '@mui/material/FormControl';
+import TextField from "@mui/material/TextField";
+import PaymentsOutlinedIcon from '@mui/icons-material/PaymentsOutlined';
 
 function Transaction({players, setPlayers, itemId, trumps, setTrumps, trumpTransaction, trumpName}) {
 
-    const [transaction, setTransaction] = useState({quantity: 0, creditor: undefined})
+    const [transaction, setTransaction] = useState({quantity: 0, creditor: ""})
     let playersAfterTransaction = []
     let trumpsAfterTransaction = []
 
     function handleSelect(e) {
+        e.preventDefault()
         setTransaction({quantity: transaction.quantity, creditor: e.target.value})
     }
     function handleInput(e) {
+        e.preventDefault()
         setTransaction({quantity: e.target.value, creditor: transaction.creditor})
     }
     function playerSideTransaction() {
@@ -59,33 +68,50 @@ function Transaction({players, setPlayers, itemId, trumps, setTrumps, trumpTrans
     }
 
     function handleTransaction() {
-        if(!isNaN(transaction.quantity) & transaction.quantity > 0 & transaction.creditor !== undefined) {
+        // On vérfie que le montant est bien un nombre entier et qu'un créditeur est défini
+        if(
+            !isNaN(transaction.quantity) 
+            & transaction.quantity > 0 
+            & transaction.creditor !== "" 
+            & Number.isInteger(parseFloat(transaction.quantity))
+        ){
             playerSideTransaction()
             trumpSideTransaction()
         }
     }
 
-    return (<>
-        <button onClick={() => handleTransaction()}>Transaction</button>
-        {/*     A éviter avec css   */}
-        <br /><br />
-        {/*     A éviter avec css   */}
-        <label htmlFor="quantity">This much: </label>
-            <input onChange={(e) => handleInput(e)} type="number" id="quantity" name="quantity" min="1" />
-        <br />
-        <label htmlFor="creditors">To: </label>
-            <select onChange={(e) => handleSelect(e)} id="creditors">
-                <option value="undefined"></option>
-                {/* Mapper les players pour les lister dans les potentiels crédités */}
-                {players.map(player => player.playerName !== undefined && 
-                    <option key={player.id} value={player.playerName} >{player.playerName}</option>
-                )}
-                {/* Mapper les trumps pour les lister dans les potentiels crédités SI le créditeur n'est pas un trump */}
-                {trumps.map(trump => !trumpTransaction &&
-                    <option key={trump.trumpName} value={trump.trumpName} >{trump.trumpName}</option>
-                )}
-        </select>
-    </>)
+    return (
+        <div>
+            <TextField 
+                size="small"
+                type="text"
+                id="quantity" 
+                label="This Much" 
+                variant="outlined"
+                inputProps={{ inputMode: 'numeric', pattern: '[0-9]*' }}
+                onChange={(e) => handleInput(e)}
+            />
+            <FormControl fullWidth size="small">
+                <InputLabel id="creditors">To: </InputLabel>
+                <Select
+                    labelId="creditors" 
+                    id="creditors-select" 
+                    value={transaction.creditor} 
+                    label="creditor" 
+                    onChange={(e) => handleSelect(e)}
+                >
+                        {/* Mapper les players pour les lister dans les potentiels crédités */}
+                        {players.map(player => player.playerName !== "" && 
+                            <MenuItem key={player.id} value={player.playerName} >{player.playerName}</MenuItem>
+                        )}
+                        {/* Mapper les trumps pour les lister dans les potentiels crédités SI le créditeur n'est pas un trump */}
+                        {trumps.map(trump => !trumpTransaction &&
+                            <MenuItem key={trump.trumpName} value={trump.trumpName} >{trump.trumpName}</MenuItem>
+                        )}
+                </Select>
+            </FormControl>
+            <Button variant="outlined" size="small" onClick={() => handleTransaction()}><PaymentsOutlinedIcon /></Button>
+        </div>)
   }
   
   export default Transaction;
