@@ -10,13 +10,27 @@
     max-width: 190px;
 
     background-color: white;
-    border: 1px solid rgb(65, 65, 65);
+    border: 1px solid $colour-border;
     border-radius: 5px;
-
     &__title {
         font-size: 4em;
         @include mobile-only {
             font-size: 2em;
         }
+    }
+    &__loser {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        
+        margin: 5px;
+        padding: 20px;
+        width: auto;
+        max-width: 190px;
+    
+        background-color: $colour-loser;
+        border: 1px solid $colour-border;
+        border-radius: 5px;
     }
 }

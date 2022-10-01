@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import TextField from "@mui/material/TextField";
 import { Button } from "@mui/material";
 
@@ -8,12 +8,6 @@ function NameForm({players, setPlayers, id, money}) {
     const currentPlayer = players.find(item => item.id === id)
 
     const [state, setState] = useState({formName: "", isValidated: false})
-
-    const [loser, setLoss] = useState(false)
-
-    useEffect(() => {
-        money < 0 ? setLoss(true) : setLoss(false)
-    }, [money])
 
     function HandleChange(e) {
         setState({formName: e.target.value, isValidated: state.isValidated})
@@ -39,7 +33,7 @@ function NameForm({players, setPlayers, id, money}) {
                 <Button variant="outlined" size="small" onClick={(e) => HandleSubmit(e)}>OK</Button>
             </form>
         ) : (
-            <h2>{currentPlayer.playerName} {loser && <span>Loser</span>}</h2>
+            <h2>{currentPlayer.playerName}</h2>
         )
         }
     </>)
