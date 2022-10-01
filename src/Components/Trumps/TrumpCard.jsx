@@ -1,12 +1,35 @@
 import MoneyCount from "../MoneyCount";
 import Transaction from "../Transaction";
-import { Card } from "@mui/material";
+import { GiCard10Diamonds, GiCard7Diamonds, GiCardJackClubs, GiCardKingHearts, GiCardQueenSpades } from "react-icons/gi"
 
 function TrumpCard({trumpName, money, players, setPlayers, trumps, setTrumps}) {
 
-    return (<div>
-        <Card variant="outlined">
-            <h1>{trumpName}</h1>
+    let displayedName
+    const expr = trumpName;
+    switch (expr) {
+      case 'ten':
+        displayedName = <GiCard10Diamonds />;
+        break;
+      case 'seven':
+        displayedName = <GiCard7Diamonds />;
+        break;
+      case 'D':
+        displayedName = <GiCardQueenSpades />;
+        break;
+      case 'K':
+        displayedName = <GiCardKingHearts />;
+        break;
+      case 'J':
+        displayedName = <GiCardJackClubs />;
+        break;
+      default: 
+        displayedName = trumpName;
+        break;
+    }
+    
+
+    return (<div className={`card ${trumpName}`}>
+            <h1 className="card__title">{displayedName}</h1>
             <MoneyCount money={money} />
             <Transaction 
                 players={players} 
@@ -16,7 +39,6 @@ function TrumpCard({trumpName, money, players, setPlayers, trumps, setTrumps}) {
                 trumpTransaction={true} 
                 trumpName={trumpName} 
             />
-        </Card>
     </div>
     )
   }

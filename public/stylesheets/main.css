@@ -1,0 +1,141 @@
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+  font-size: 2rem;
+  font-weight: 100;
+  line-height: 1.7;
+}
+
+h1 {
+  font-family: "Roboto", sans-serif;
+  font-weight: 900;
+  font-size: 5rem;
+}
+
+/* textarea {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 100;
+    font-size: 2rem;
+} */
+/* button {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 900;
+    font-style: italic;
+    font-size: 2.75rem;
+} */
+.button__icon {
+  margin-right: 5px;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 5px;
+  padding: 20px;
+  width: auto;
+  max-width: 190px;
+  background-color: white;
+  border: 1px solid rgb(65, 65, 65);
+  border-radius: 5px;
+}
+.card__title {
+  font-size: 4em;
+}
+@media screen and (max-width: 700px) {
+  .card__title {
+    font-size: 2em;
+  }
+}
+
+.container__header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 80px;
+  background-color: rgb(103, 103, 98);
+  color: rgb(255, 255, 244);
+  font-size: 1em;
+}
+@media screen and (max-width: 1042px) {
+  .container__header--title {
+    font-size: 1.5em;
+  }
+}
+@media screen and (max-width: 700px) {
+  .container__header--title {
+    font-size: 1.5em;
+  }
+}
+@media screen and (max-width: 700px) {
+  .container__header--hidden {
+    display: none;
+  }
+}
+.container__main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 2%;
+  background-color: rgb(255, 255, 244);
+}
+.container__main--buttons {
+  flex-direction: row;
+  height: 50px;
+  align-items: center;
+}
+.container__trumps {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  flex-wrap: wrap;
+}
+.container__players {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  flex-wrap: wrap;
+}
+.container__footer {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  height: 80px;
+  background-color: rgb(103, 103, 98);
+}
+.container__footer--link {
+  font-family: "Mongolian Baiti", Arial, Helvetica, sans-serif;
+  text-decoration: none;
+  color: rgb(255, 255, 244);
+}
+@media screen and (max-width: 700px) {
+  .container__footer--link {
+    font-size: 2em;
+  }
+}
+@media screen and (max-width: 700px) {
+  .container__footer--hidden {
+    display: none;
+  }
+}
+
+/*# sourceMappingURL=main.css.map */

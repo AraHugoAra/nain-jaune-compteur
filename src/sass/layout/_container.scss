@@ -1,0 +1,72 @@
+.container {
+    &__header {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 80px;
+        background-color: $colour-secondary;
+        color: $colour-primary;
+        font-size: 1em;
+        &--title {
+            @include tablet-only {
+                font-size: 1.5em;
+            }
+            @include mobile-only {
+                font-size: 1.5em;
+            }
+        }
+        &--hidden {
+            @include mobile-only {
+                display: none;
+            }
+        }
+    }
+    &__main {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        padding: 2%;
+        background-color: $colour-primary;
+        &--buttons {
+            flex-direction: row;
+            height: 50px;
+            align-items: center;
+        }
+    }
+    &__trumps {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        flex-wrap: wrap;
+    }
+    &__players {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        flex-wrap: wrap;
+    }
+    &__footer {
+        display: flex;
+        justify-content: center;
+        align-items: flex-end;
+        height: 80px;
+        background-color: $colour-secondary;
+        &--link {
+            font-family: 'Mongolian Baiti', Arial, Helvetica, sans-serif;
+            text-decoration: none;
+            color: $colour-primary;
+            @include mobile-only {
+                font-size: 2em;
+            }
+        }
+        &--hidden {
+            @include mobile-only {
+                display: none;
+            }
+        }
+    }
+}

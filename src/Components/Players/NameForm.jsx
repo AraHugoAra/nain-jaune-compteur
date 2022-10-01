@@ -20,14 +20,14 @@ function NameForm({players, setPlayers, id, money}) {
     }
     function HandleSubmit() {
         setPlayers([...filteredCurrentPlayer, {playerName: state.formName, money: currentPlayer.money, id: currentPlayer.id}])
-        setState({isValidated: true})
-
+        state.formName !== "" && setState({isValidated: true})
     }
     
     return (<>
         {!state.isValidated ? (
             <form>
                 <TextField
+                    inputProps={{ maxLength: 9 }}
                     size="small"
                     onKeyDown={e => e.key === 'Enter' && e.preventDefault()}
                     type="text"
