@@ -9,6 +9,9 @@ import AttachMoneyIcon from '@mui/icons-material/AttachMoney';
 
 function Transaction({players, setPlayers, itemId, trumps, setTrumps, trumpTransaction, trumpName}) {
 
+    // Tableau de correspondance entre les index et les bet des trumps (10.bet = 1 donc premier index du tableau est le nom à afficher)
+    const displayedTrumps = ["10", "Valet", "Dame", "Roi", "7"]
+
     const [transaction, setTransaction] = useState({quantity: 0, creditor: ""})
     let playersAfterTransaction = []
     let trumpsAfterTransaction = []
@@ -106,7 +109,7 @@ function Transaction({players, setPlayers, itemId, trumps, setTrumps, trumpTrans
                         )}
                         {/* Mapper les trumps pour les lister dans les potentiels crédités SI le créditeur n'est pas un trump */}
                         {trumps.map(trump => !trumpTransaction &&
-                            <MenuItem key={trump.trumpName} value={trump.trumpName} >{trump.trumpName}</MenuItem>
+                            <MenuItem key={trump.trumpName} value={trump.trumpName} >{displayedTrumps[trump.bet -1]}</MenuItem>
                         )}
                 </Select>
             </FormControl>
