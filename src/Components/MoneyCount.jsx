@@ -1,9 +1,9 @@
-function MoneyCount({money}) {
+function MoneyCount({ money }) {
+  return (
+    <>
+      <p>Jetons: {money}</p>
+    </>
+  );
+}
 
-    return (<>
-        <p>Jetons: {money}</p>
-    </>)
-  }
-  
-  export default MoneyCount;
-  
+export default MoneyCount;
