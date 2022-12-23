@@ -1,5 +1,8 @@
 --- Project is live here: https://nain-jaune-compteur.netlify.app/ ---
 
+It's a project I did for fun and that has no other goal but counting tokens during Nain Jaune's game (which is an old, like real old, card games) !
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
